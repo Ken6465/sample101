@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<!-- saved from url=(0041)http://localhost/Ticket_Booking/index.php -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ticket Booking System</title>
+  <!-- MDBootstrap and FontAwesome -->
+  <link rel="stylesheet" href="./index_files/mdb.min.css">
+  <link rel="stylesheet" href="./index_files/all.min.css">
+ <style>
+  /* Existing styles from the original document */
+  .background-radial-gradient {
+    background-color: hsl(218, 41%, 15%);
+    background-image: radial-gradient(650px circle at 0% 0%,
+        hsl(218, 41%, 35%) 15%,
+        hsl(218, 41%, 30%) 35%,
+        hsl(218, 41%, 20%) 75%,
+        hsl(218, 41%, 19%) 80%,
+        transparent 100%),
+      radial-gradient(1250px circle at 100% 100%,
+        hsl(218, 41%, 45%) 15%,
+        hsl(218, 41%, 30%) 35%,
+        hsl(218, 41%, 20%) 75%,
+        hsl(218, 41%, 19%) 80%,
+        transparent 100%);
+    min-height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .navbar {
+    background-color: hsla(218, 41%, 25%, 0.9) !important;
+    backdrop-filter: saturate(200%) blur(25px);
+  }
+
+  .navbar-brand, .nav-link {
+    color: hsl(218, 81%, 95%) !important;
+    transition: color 0.3s ease;
+  }
+
+  .navbar-brand:hover, .nav-link:hover {
+    color: hsl(218, 81%, 75%) !important;
+  }
+
+  .main-content {
+    min-height: calc(100vh - 160px);
+    padding: 2rem 0;
+  }
+
+  .footer {
+    background-color: hsla(218, 41%, 25%, 0.9) !important;
+    backdrop-filter: saturate(200%) blur(25px);
+    color: hsl(218, 81%, 95%);
+  }
+
+  .footer a {
+    color: hsl(218, 81%, 95%) !important;
+    transition: color 0.3s ease;
+  }
+
+  .footer a:hover {
+    color: hsl(218, 81%, 75%) !important;
+  }
+
+  .card {
+    background-color: hsla(218, 41%, 35%, 0.8) !important;
+    backdrop-filter: saturate(200%) blur(15px);
+    color: hsl(218, 81%, 95%);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+  }
+
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px hsla(218, 41%, 10%, 0.5);
+  }
+
+  .card-img-top {
+    filter: brightness(0.8);
+    transition: filter 0.3s ease;
+    height: 250px;
+    object-fit: cover;
+  }
+
+  .card:hover .card-img-top {
+    filter: brightness(1);
+  }
+
+  .card-body {
+    text-align: center;
+  }
+
+  .btn-primary {
+    background-color: hsl(218, 81%, 75%);
+    border-color: hsl(218, 81%, 75%);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    background-color: hsl(218, 81%, 65%);
+    border-color: hsl(218, 81%, 65%);
+    transform: scale(1.05);
+  }
+
+  /* Fix for Login and Cart Button hover effect */
+  .btn-link {
+    color: hsl(218, 81%, 95%) !important;
+    transition: color 0.3s ease, background-color 0.3s ease;
+  }
+
+  .btn-link:hover {
+    color: hsl(218, 41%, 19%) !important; /* Dark color for readability */
+    background-color: hsl(218, 81%, 75%) !important; /* Light background on hover */
+  }
+
+  .btn-link i {
+    color: inherit; /* Make sure the icons also change color on hover */
+  }
+
+  /* Cart button with badge fix */
+  .btn-link .badge {
+    background-color: hsl(218, 81%, 75%) !important; /* Color for badge */
+  }
+
+  /* Carousel-specific styles */
+  .carousel-item .row {
+    display: flex;
+    justify-content: center;
+  }
+</style>
+
+<style>INPUT:-webkit-autofill,SELECT:-webkit-autofill,TEXTAREA:-webkit-autofill{animation-name:onautofillstart}INPUT:not(:-webkit-autofill),SELECT:not(:-webkit-autofill),TEXTAREA:not(:-webkit-autofill){animation-name:onautofillcancel}@keyframes onautofillstart{}@keyframes onautofillcancel{}</style><style>INPUT:-webkit-autofill,SELECT:-webkit-autofill,TEXTAREA:-webkit-autofill{animation-name:onautofillstart}INPUT:not(:-webkit-autofill),SELECT:not(:-webkit-autofill),TEXTAREA:not(:-webkit-autofill){animation-name:onautofillcancel}@keyframes onautofillstart{}@keyframes onautofillcancel{}</style></head>
+<body class="background-radial-gradient">
+  <!-- Navbar with Ticket Cart Icon -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="http://localhost/Ticket_Booking/index.php">
+        <i class="fas fa-ticket-alt me-2"></i>
+        Ticket Booking
+      </a>
+      <button class="navbar-toggler collapsed" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarNav" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="http://localhost/Ticket_Booking/index.php#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost/Ticket_Booking/index.php#">Movies</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost/Ticket_Booking/index.php#">Events</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost/Ticket_Booking/index.php#">Concerts</a>
+          </li>
+        </ul>
+        <div class="d-flex align-items-center">
+          <a href="http://localhost/Ticket_Booking/login.php" class="btn btn-link px-3 me-2 text-light">Login</a>
+          <a href="http://localhost/Ticket_Booking/register.php" class="btn btn-primary me-3">Sign up</a>
+          
+          <!-- Ticket Validation / Cart Icon -->
+          <a href="http://localhost/Ticket_Booking/ticket.php" class="btn btn-link px-3 me-2 text-light">
+            <i class="fas fa-shopping-cart"></i> 
+            <span class="badge bg-danger">3</span> <!-- Example of ticket count -->
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+
+  <!-- Main Content with Carousel -->
+  <div class="main-content">
+    <div class="container">
+      <h1 class="text-center mb-5" style="color: hsl(218, 81%, 95%)">Featured Events</h1>
+      
+      <!-- MDB Carousel -->
+      <div id="eventCarousel" class="carousel slide carousel-dark" data-mdb-ride="carousel">
+        <div class="carousel-inner">
+          
+          <!-- First Slide -->
+          <div class="carousel-item active">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+              <!-- Event Card 1 -->
+              <div class="col">
+                <div class="card h-100">
+                  <img src="./index_files/e826ebbcc692b4d19059d24125cf23699067ab621c979612fd0ca11ab42a65cb._SX1080_FMjpg_.jpg" class="card-img-top" alt="Event 1">
+                  <div class="card-body">
+                    <h5 class="card-title">Movie: Inception</h5>
+                    <p class="card-text">Experience this mind-bending thriller on the big screen.</p>
+                    <p class="text-light">Date: Dec 15, 2024</p>
+                    <a href="http://localhost/Ticket_Booking/seat_booking.php" class="btn btn-primary">Book Now</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Event Card 2 -->
+              <div class="col">
+                <div class="card h-100">
+                  <img src="./index_files/photo-1506157786151-b8491531f063" class="card-img-top" alt="Event 2">
+                  <div class="card-body">
+                    <h5 class="card-title">Concert: Rock Festival</h5>
+                    <p class="card-text">Annual rock music festival featuring top bands.</p>
+                    <p class="text-light">Date: Dec 20, 2024</p>
+                    <a href="http://localhost/Ticket_Booking/seat_booking.php" class="btn btn-primary">Book Now</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Event Card 3 -->
+              <div class="col">
+                <div class="card h-100">
+                  <img src="./index_files/ew2rj-2000-c251e796658649a68451e6e8be1ebc9d.jpg" class="card-img-top" alt="Event 3">
+                  <div class="card-body">
+                    <h5 class="card-title">Theater: Romeo &amp; Juliet</h5>
+                    <p class="card-text">Classic Shakespeare play with a modern twist.</p>
+                    <p class="text-light">Date: Dec 25, 2024</p>
+                    <a href="http://localhost/Ticket_Booking/seat_booking.php" class="btn btn-primary">Book Now</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Second Slide -->
+          <div class="carousel-item">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+              <!-- Event Card 4 -->
+              <div class="col">
+                <div class="card h-100">
+                  <img src="./index_files/a4989e_a031d51000ed4a158bf84e860dc601bc~mv2.png" class="card-img-top" alt="Event 4">
+                  <div class="card-body">
+                    <h5 class="card-title">Comedy Show: Laugh Night</h5>
+                    <p class="card-text">An evening of stand-up comedy with top comedians.</p>
+                    <p class="text-light">Date: Jan 5, 2025</p>
+                    <a href="http://localhost/Ticket_Booking/seat_booking.php" class="btn btn-primary">Book Now</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Event Card 5 -->
+              <div class="col">
+                <div class="card h-100">
+                  <img src="./index_files/photo-1525362081669-2b476bb628c3" class="card-img-top" alt="Event 5">
+                  <div class="card-body">
+                    <h5 class="card-title">Art Exhibition: Modern Masters</h5>
+                    <p class="card-text">A curated collection of contemporary art.</p>
+                    <p class="text-light">Date: Jan 10, 2025</p>
+                    <a href="http://localhost/Ticket_Booking/seat_booking.php" class="btn btn-primary">Book Now</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Event Card 6 -->
+              <div class="col">
+                <div class="card h-100">
+                  <img src="./index_files/jazznight_wide-935d952bd5017d8ecf5fdf7734db6f318cd3de9e.jpg" class="card-img-top" alt="Event 6">
+                  <div class="card-body">
+                    <h5 class="card-title">Music: Jazz Night</h5>
+                    <p class="card-text">Smooth jazz performance by renowned musicians.</p>
+                    <p class="text-light">Date: Jan 15, 2025</p>
+                    <a href="http://localhost/Ticket_Booking/seat_booking.php" class="btn btn-primary">Book Now</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Carousel Controls -->
+        <button class="carousel-control-prev" type="button" data-mdb-target="#eventCarousel" data-mdb-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-mdb-target="#eventCarousel" data-mdb-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Existing footer from the original document -->
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 mb-3">
+          <h5>Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="http://localhost/Ticket_Booking/index.php#" class="text-light">About Us</a></li>
+            <li><a href="http://localhost/Ticket_Booking/index.php#" class="text-light">Contact</a></li>
+            <li><a href="http://localhost/Ticket_Booking/index.php#" class="text-light">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4 mb-3">
+          <h5>Follow Us</h5>
+          <a href="http://localhost/Ticket_Booking/index.php#" class="btn btn-link btn-floating text-light">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="http://localhost/Ticket_Booking/index.php#" class="btn btn-link btn-floating text-light">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="http://localhost/Ticket_Booking/index.php#" class="btn btn-link btn-floating text-light">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
+        <div class="col-lg-4">
+          <h5>Newsletter</h5>
+          <div class="input-group mb-3">
+            <input type="email" class="form-control" placeholder="Enter your email">
+            <button class="btn btn-primary" type="button">Subscribe</button>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="text-center">
+        <p class="mb-0">© 2024 Ticket Booking System. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./index_files/mdb.min.js.download"></script>
+
+
+  <script src="./index_files/mdb.min.js.download"></script>
+  <script>
+    // Initialize the carousel with a 5-second interval
+    document.addEventListener('DOMContentLoaded', function() {
+      const carousel = new mdb.Carousel(document.getElementById('eventCarousel'), {
+        interval: 3000,
+        ride: true
+      });
+    });
+  </script>
+
+</body></html>
